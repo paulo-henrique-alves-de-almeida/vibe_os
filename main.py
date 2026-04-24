@@ -16,6 +16,7 @@ import os
 from time import sleep
 from json import load
 from simpleeval import SimpleEval, OperatorNotDefined, NumberTooHigh
+from openai import OpenAI
 
 from rich.markdown import Markdown
 from rich.panel import Panel
@@ -175,7 +176,6 @@ def menu(nome_dados: str) -> None:
                             else:
                                 gerenciador_pastas.ler_arquivo(comando_separado[1])
 
-                        
                         case 'echo':
                             match len(comando_separado):
                                 case 1:
@@ -195,6 +195,21 @@ def menu(nome_dados: str) -> None:
                                 case _:
                                     erro('Comando inválido.')
                         
+                        case 'gpt':
+                            if len(comando_separado) != 2:
+                                aviso('Digite o prompt.')
+                            else:
+                                client = OpenAI()
+                                chave_api = ''
+                                resposta = openai.ChatCompletion.create(
+                                    model = 'gpt-5.2',
+                                    messages = [
+                                        {'role': 'user', 'content': comando_separado[1]}
+                                        ]
+                                    )
+                                
+                                console.print(f'ChatGPT: {resposta['choices'][0]['messages']['content']}')
+                        
                         case _:
                             calculadora = SimpleEval(functions={}, names={})
                             calculadora.disallow_attributes = True
@@ -213,9 +228,9 @@ def menu(nome_dados: str) -> None:
                                 aviso('A expressão é grande demais.')
                             except:
                                 erro(f'Comando [italic]{comando}[/italic] desconhecido.')
-        except:
-        # except Exception as e:
-        # print(e)
+        # except:
+        except Exception as e:
+            print(e)
             console.print()
 
 if __name__ == '__main__':
