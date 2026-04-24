@@ -146,9 +146,12 @@ def menu(nome_dados: str) -> None:
                                 gerenciador_pastas.trocar_pasta(comando_separado[1])
                         
                         case 'mkdir':
-                            for command in comando_separado:
-                                if command != 'mkdir':
-                                    gerenciador_pastas.criar_pasta(command)
+                            if len(comando_separado) < 2:
+                                aviso('Esperava o nome do diretório para ser criado.')
+                            else:
+                                for command in comando_separado:
+                                    if command != 'mkdir':
+                                        gerenciador_pastas.criar_pasta(command)
                         
                         case 'touch':
                             if len(comando_separado) != 2:
