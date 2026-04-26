@@ -11,8 +11,8 @@ class CaixaSom:
         return cls._instance
     
     def __init__(self):
-        self.musicas = Path(__file__).parent.parent / 'sons' / 'musicas'
-        self.efeitos = Path(__file__).parent.parent / 'sons' / 'efeitos'
+        self.musicas = Path(__file__).parent.parent / 'medias' / 'sons' / 'musicas'
+        self.efeitos = Path(__file__).parent.parent / 'medias' / 'sons' / 'efeitos'
 
         self.musica_atual = None
     

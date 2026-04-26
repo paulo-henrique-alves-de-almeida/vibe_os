@@ -41,7 +41,7 @@ class GerenciadorPastas:
         caminho = Path(self.caminho_atual / nome_pasta)
 
         if nome_pasta:
-            if caminho.exists and caminho.is_dir():
+            if caminho.exists() and caminho.is_dir():
                 console.print(f'\n[magenta][bold]Diretório:[/bold] {self.get_caminho_home(False)}/{nome_pasta}[/magenta]')
             else:
                 erro('Caminho não encontrado.')
@@ -52,14 +52,15 @@ class GerenciadorPastas:
         for item in caminho.iterdir():
             if item.is_dir():
                 quantidade_pastas += 1
-                tamanho_arquivos += item.stat().st_size
                 tipo = 'DIR'
             else:
                 quantidade_arquivos += 1
+                tamanho_arquivos += item.stat().st_size
                 tipo = 'ARQ'
 
             print(f'\033[32m<\033[35m{tipo}\033[32m>\033[m ', end='')
             console.print(f'[magenta]{item.name}[/magenta]')
+
         console.print(f'\n    {quantidade_arquivos} {'Arquivo' if quantidade_arquivos <= 1 else 'Arquivos'}    |   {tamanho_arquivos} bytes')
         console.print(f'    {quantidade_pastas} {'Diretório' if quantidade_pastas <= 1 else 'Diretórios'}\n')
     
@@ -97,7 +98,7 @@ class GerenciadorPastas:
 
         if caminho.exists() and caminho.is_file():
             while True:
-                certeza = console.input(f'>>> Deseja mesmo excluir [bold]{nome_arquivo}[/bold]? Ele não poderá ser recuperado depois. (S/N) ').lower()
+                certeza = console.input(f'>>> Deseja mesmo excluir [bold]{nome_arquivo}[/bold]? Ele não poderá ser recuperado depois. (S/N) ').strip().lower()
 
                 if certeza == 's' or certeza == 'n':
                     break
@@ -115,7 +116,7 @@ class GerenciadorPastas:
         arquivo = Path(self.caminho_atual / nome_arquivo)
 
         if arquivo.exists() and arquivo.is_file():
-            with open (arquivo, 'r') as arq:
+            with open(arquivo, 'r') as arq:
                 texto = arq.read()
 
                 console.print(f'{texto}\n')
@@ -127,7 +128,7 @@ class GerenciadorPastas:
         arquivo = Path(self.caminho_atual / nome_arquivo)
 
         if arquivo.exists() and arquivo.is_file():
-            with open (arquivo, 'a') as arq:
+            with open(arquivo, 'a') as arq:
                 arq.write(texto)
         else:
             erro(f'Arquivo [bold]{nome_arquivo}[/bold] não encontrado.')

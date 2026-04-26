@@ -42,13 +42,20 @@
 - Seguindo a forma: `echo [valor] > [nome_arquivo]`.
 - Argumentos devem ser separado por espaço.
 
+**viber [prompt]:** Conversa com uma Inteligência Artificial
+- Obrigatório um argumento.
+
+---
+
+# Aplicativos
+
 **calendar:** Abre o aplicativo Calendário.
 
 **music:** Abre a Biblioteca de Música.
 
 **vibegotchi:** Abre o aplicativo Vibegotchi.
 
-**gpt:** Abre o prompt ChatGPT.
+**vibe_invaders:** Abre o jogo Vibe Invaders
 
 **help:** Imprime o manual de comandos do sistema.
 
@@ -67,3 +74,7 @@ São aceitas expressões matemáticas (desde que não muito grandes) e o termina
 - Módulo: %
 - Potênciação: **
 - Parênteses: ()
+
+---
+
+Existem alguns comandos secretos...
