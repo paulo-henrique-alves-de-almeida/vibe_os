@@ -1,6 +1,7 @@
 # pastas e arquivos criadas durante a execução
 dados/
 home/
+score/
 *.json
 
 # Byte-compiled / optimized / DLL files

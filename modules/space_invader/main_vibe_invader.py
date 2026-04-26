@@ -3,10 +3,10 @@ import msvcrt
 from rich.console import Console
 from rich.live import Live
 
-from game import Game
-from menu import draw_menu, draw_gameover, handle_menu_input
-from save import load_highscore, save_highscore
-import sound
+from modules.space_invader.game import Game
+from modules.space_invader.menu_vibe_invader import draw_menu, draw_gameover, handle_menu_input
+from modules.space_invader.save import load_highscore, save_highscore
+from modules.space_invader import sound
 
 console = Console()
 

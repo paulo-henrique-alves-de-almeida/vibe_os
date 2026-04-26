@@ -4,15 +4,15 @@ from pygame import mixer
 class CaixaSom:
     _instance = None
 
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super(CaixaSom, cls).__new__(cls)
+    def __new__(cls, *args, **kwargs):
+        nova_instancia = super().__new__(cls)
+        cls._instance = nova_instancia
         
-        return cls._instance
+        return nova_instancia
     
-    def __init__(self):
-        self.musicas = Path(__file__).parent.parent / 'medias' / 'sons' / 'musicas'
-        self.efeitos = Path(__file__).parent.parent / 'medias' / 'sons' / 'efeitos'
+    def __init__(self, musicas: str = 'medias/sons/musicas', efeitos: str = 'medias/sons/efeitos'):
+        self.musicas = Path(__file__).parent.parent / musicas
+        self.efeitos = Path(__file__).parent.parent / efeitos
 
         self.musica_atual = None
     
@@ -29,6 +29,13 @@ class CaixaSom:
         mixer.music.load(Path(self.musicas / nome_musica))
         mixer.music.play(loop)
         mixer.music.fadeout(fadeout)
+    
+    def volume_efeito(self, nome_efeito: str, volume: float):
+        efeito = mixer.Sound(Path(self.efeitos / nome_efeito))
+        efeito.set_volume(volume)
+    
+    def volume_musica(self, volume: float = 1):
+        mixer.music.set_volume(volume)
 
     def pausar_musica(self):
         mixer.music.stop()

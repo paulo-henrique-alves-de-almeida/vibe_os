@@ -1,21 +1,19 @@
 from rich.panel import Panel
 from rich.align import Align
 from rich.text import Text
-
+from rich.console import Group
+from art import text2art
 
 def draw_menu():
-    text = Text()
-    text.append("VIBE INVADERS\n", style="bold green")
-    text.append("\n[A] Jogar\n", style="bold green")
-    text.append("[Q] Sair\n", style="bold green")
+    titulo = Text(text2art("VIBE  INVADERS"), style="bold green")
+    
+    menu = Text("\n\n[A] Jogar\n\n[Q] Sair\n\n", style="bold green", justify='center')
+    
+    controles = Align(Text("A: Esquerda  |  D: Direita  |  Backspace: Atirar", style="bold green"), vertical='bottom', align='center')
 
-    panel = Panel(
-        text,
-        border_style="green",
-        width=40,
-        height=12,
-        expand=False
-    )
+    conteudo = Group(titulo, menu, controles)
+
+    panel = Panel(conteudo, border_style="green", height=20)
 
     return Align.center(panel, vertical="middle")
 

@@ -20,7 +20,7 @@ def mostrar_aplicativos():
                         
 [3] Vibegotchi
                         
-[4] Vibe Box
+[4] Vibe Invaders
                         
 [5] Ajuda
                         

@@ -42,8 +42,12 @@
 - Seguindo a forma: `echo [valor] > [nome_arquivo]`.
 - Argumentos devem ser separado por espaço.
 
-**viber [prompt]:** Conversa com uma Inteligência Artificial
-- Obrigatório um argumento.
+**viber [prompt]:** Conversa com Viber, o assistente de IA do VibeOS.
+- Obrigatório um prompt.
+
+**help:** Imprime o manual de comandos do sistema.
+
+**shutdown:** Desliga o sistema.
 
 ---
 
@@ -56,10 +60,6 @@
 **vibegotchi:** Abre o aplicativo Vibegotchi.
 
 **vibe_invaders:** Abre o jogo Vibe Invaders
-
-**help:** Imprime o manual de comandos do sistema.
-
-**shutdown:** Desliga o sistema.
 
 ---
 

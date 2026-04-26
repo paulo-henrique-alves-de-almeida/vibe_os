@@ -8,12 +8,12 @@ if str(pasta_modules) not in path:
 
 from modules.iniciar import boot, boas_vindas, menor_idade, checar_sehha, desligamento, coletar_dados
 from modules.menu import cabecalho, mostrar_aplicativos
-from modules.console import console, erro, aviso
+from modules.console import console, erro, aviso, limpar_tela
 from modules.gerenciar_pastas import GerenciadorPastas
 from modules.video2ascii import VideoAscii
+from modules.space_invader import main_vibe_invader as vibe_invaders
 
 # outras importações
-import os
 from time import sleep
 from json import load
 from simpleeval import SimpleEval, OperatorNotDefined, NumberTooHigh
@@ -82,9 +82,13 @@ def menu(nome_dados: str) -> None:
                     pass
                     aplicativo = True
                 
-                case '4' | 'gpt':
-                    pass
+                case '4' | 'vibe_invaders':
                     aplicativo = True
+                    limpar_tela()
+                    try:
+                        vibe_invaders.main()
+                    except:
+                        continue
                 
                 case '5' | 'help':
                     with open(Path(__file__).parent / 'modules' / 'help.md', encoding='utf-8') as man:
@@ -117,7 +121,7 @@ def menu(nome_dados: str) -> None:
                             if len(comando_separado) != 2:
                                 erro('Comando não reconhecido.')
                             else:
-                                comandos = {'clear': [1, 2], 'whoiam': [3, 4], 'pwd': [5, 6], 'hostname': [7, 8], 'uname': [9, 10], 'ls': [11, 14], 'man': [15, 18], 'cd': [19, 21], 'mkdir': [22, 25], 'touch': [26, 28], 'rm': [29, 31], 'rmdir': [32, 35], 'cat': [36, 38], 'echo': [39, 43], 'viber': [44, 46], 'calendar': [51, 52], 'music': [53, 54], 'vibegotchi': [55, 56], 'vibe_invaders': [50, 51], 'help': [59, 60], 'shutdown': [61, 62]}
+                                comandos = {'clear': [1, 2], 'whoiam': [3, 4], 'pwd': [5, 6], 'hostname': [7, 8], 'uname': [9, 10], 'ls': [11, 14], 'man': [15, 18], 'cd': [19, 21], 'mkdir': [22, 25], 'touch': [26, 28], 'rm': [29, 31], 'rmdir': [32, 35], 'cat': [36, 38], 'echo': [39, 43], 'viber': [44, 46], 'calendar': [55, 56], 'music': [57, 58], 'vibegotchi': [59, 60], 'vibe_invaders': [61, 62], 'help': [47, 48], 'shutdown': [49, 50]}
                                 
                                 if comando_separado[1] in comandos:
                                     caminho = Path(__file__).parent / 'modules' / 'help.md'
@@ -204,7 +208,7 @@ def menu(nome_dados: str) -> None:
                             if len(comando_separado) < 2:
                                 aviso('Prompt esperado.')
                             else:
-                                console.print('Pensando[green]...[/green]\n')
+                                console.print('>>> Pensando[green]...[/green]\n')
 
                                 genai.configure(api_key="AIzaSyBAg_yUG5d1-y4-fBsTLIi29CfwJI9w28o")
 
@@ -212,7 +216,7 @@ def menu(nome_dados: str) -> None:
                                 with open(caminho, "r", encoding="utf-8") as arquivo_instrucoes:
                                     instrucoes = arquivo_instrucoes.read()
                                     
-                                instrucoes_ia = '\n\n---\n\n# Instruções de IA\n\n- Você é um assistente de Sistema Operacional VibeOS em terminal, chamado Viber.\n- Responda sempre em português.\n-Se não souber a resposta, diga claramente. Nunca invente informações.\n- Seja profissional, mas amigável.\n- Não use comandos markdown em sua resposta.\n- Não utilize emojis.'
+                                instrucoes_ia = '\n\n---\n\n# Instruções de IA\n\n- Você é um assistente de Sistema Operacional VibeOS em terminal, chamado Viber.\n- Responda sempre em português.\n-Se não souber a resposta, diga claramente. Nunca invente informações.\n- Seja profissional, mas amigável.\n- Não use comandos markdown em sua resposta.\n- Não utilize emojis.\n- Você ama tudo relacionado ao VibeOS, melhor sistema operacional que existe. Incluindo Vibe Invaders, Vibegotchi, músicas, segredos etc.\n- Você foi treinado por Paulo Henrique.\n- Luiza Silva Leite é a princesa do reino do qual o VibeOS faz parte.'
                                 instrucoes += instrucoes_ia
                                     
                                 model = genai.GenerativeModel(
@@ -227,7 +231,7 @@ def menu(nome_dados: str) -> None:
                                 try:
                                     response = model.generate_content(prompt)
 
-                                    console.print(f'Viber: {response.text}\n')
+                                    console.print(f'[bold blue]Viber[/bold blue]: {response.text}\n')
                                 except ResourceExhausted:
                                     aviso('Limite de requisições atingido. Espere um minuto e tente novamente.')
                                 except:
