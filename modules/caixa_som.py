@@ -24,11 +24,13 @@ class CaixaSom:
         efeito = mixer.Sound(Path(self.efeitos / nome_efeito))
         efeito.play()
 
-    def tocar_musica(self, nome_musica: str, loop: int = -1, fadeout: int = 0):
+    def tocar_musica(self, nome_musica: str, loop: int = -1, fadeout: float = 0):
         self.musica_atual = str(Path(nome_musica).stem)
         mixer.music.load(Path(self.musicas / nome_musica))
         mixer.music.play(loop)
-        mixer.music.fadeout(fadeout)
+
+        if fadeout:
+            mixer.music.fadeout(fadeout)
     
     def volume_efeito(self, nome_efeito: str, volume: float):
         efeito = mixer.Sound(Path(self.efeitos / nome_efeito))

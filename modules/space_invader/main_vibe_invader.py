@@ -20,7 +20,11 @@ def main():
             # input
             key = None
             if msvcrt.kbhit():
-                key = msvcrt.getch().lower()
+                key = msvcrt.getch()
+                if key == b'\xe0':  # tecla especial (setas)
+                    key = msvcrt.getch()
+                else:
+                    key = key.lower()
 
             # menu
             if state == "menu":

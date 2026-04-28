@@ -124,7 +124,7 @@ def desligamento() -> None:
     limpar_tela()
     console.print("\n")
     etapas = ['Desligando aplicativos...', 'Saindo da vibe...', 'Salvando pastas...', 'Deixando tudo pronto para desligar...']
-    with Progress(SpinnerColumn(style="green"), TextColumn("[green]{task.description}"), BarColumn(bar_width=40, style="green", complete_style="bright_green"), console=console, transient=True, ) as progress:
+    with Progress(SpinnerColumn('bouncingBar', style="green"), TextColumn("[green]{task.description}"), BarColumn(bar_width=40, style="green", complete_style="bright_green"), console=console, transient=True) as progress:
         tarefa = progress.add_task("Inicializando...", total=len(etapas))
         for etapa in etapas:
             progress.update(tarefa, description=etapa, advance=1)

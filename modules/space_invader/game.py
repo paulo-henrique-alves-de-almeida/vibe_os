@@ -5,9 +5,6 @@ from rich.align import Align
 from modules.space_invader.config import WIDTH, HEIGHT, PLAYER_CHAR, ENEMY_CHAR, BULLET_CHAR
 from modules.space_invader import sound
 
-# importando pygame para capturar o uso das setas para direita e esquerda
-from pygame import K_LEFT, K_RIGHT
-
 
 def _formation_linha() -> list:
     return [[x, 2] for x in range(5, WIDTH - 5, 4)]
@@ -114,9 +111,9 @@ class Game:
 
 
     def handle_input(self, key):
-        if (key == b'a' or key == K_LEFT) and self.player_pos > 0:
+        if (key == b'a' or key == b'K') and self.player_pos > 0:
             self.player_pos -= 1
-        elif (key == b'd' or key == K_RIGHT) and self.player_pos < WIDTH - 1:
+        elif (key == b'd' or key == b'M') and self.player_pos < WIDTH - 1:
             self.player_pos += 1
         elif key == b' ' and self.bullet is None:
             self.bullet = [self.player_pos, HEIGHT - 2]
