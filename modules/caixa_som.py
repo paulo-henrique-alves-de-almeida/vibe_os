@@ -20,24 +20,19 @@ class CaixaSom:
         if not mixer.get_init():
             mixer.init()
     
-    def tocar_efeito(self, nome_efeito: str):
+    def tocar_efeito(self, nome_efeito: str, volume: float = 1):
         efeito = mixer.Sound(Path(self.efeitos / nome_efeito))
         efeito.play()
+        efeito.set_volume(volume)
 
-    def tocar_musica(self, nome_musica: str, loop: int = -1, fadeout: float = 0):
+    def tocar_musica(self, nome_musica: str, volume: float = 1, loop: int = -1, fadeout: float = 0):
         self.musica_atual = str(Path(nome_musica).stem)
         mixer.music.load(Path(self.musicas / nome_musica))
         mixer.music.play(loop)
+        mixer.music.set_volume(volume)
 
         if fadeout:
             mixer.music.fadeout(fadeout)
-    
-    def volume_efeito(self, nome_efeito: str, volume: float):
-        efeito = mixer.Sound(Path(self.efeitos / nome_efeito))
-        efeito.set_volume(volume)
-    
-    def volume_musica(self, volume: float = 1):
-        mixer.music.set_volume(volume)
 
     def pausar_musica(self):
         mixer.music.stop()
