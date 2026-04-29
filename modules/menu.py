@@ -1,6 +1,7 @@
 # importação de modules internos
 from console import console, erro, aviso, limpar_tela
 from modules.gerenciar_pastas import gerenciador_pastas
+from caixa_som import caixa_som
 from video2ascii import VideoAscii
 from space_invader import main_vibe_invader as vibe_invaders
 
@@ -44,11 +45,14 @@ def menu(nome: str, nome_dados: str) -> None:
 
     while True:
         try:
+            if not caixa_som.get_busy_music():
+                caixa_som.tocar_musica(caixa_som.get_musica_atual(), 0.5)
+            
             if aplicativo:
                 cabecalho(nome_dados)
                 mostrar_aplicativos()
                 console.print()
-
+            console.print(caixa_som.get_musica_atual())  
             comando = console.input(f'[light_green]{nome}@vibe-os:[/light_green]{gerenciador_pastas.get_caminho_home()} > ').strip()
 
             match comando:
@@ -97,8 +101,9 @@ def menu(nome: str, nome_dados: str) -> None:
                     limpar_tela()
                     try:
                         vibe_invaders.main()
-                    except:
-                        continue
+                    except Exception as e:
+                        print(e)
+                        input()
                 
                 case '5' | 'help':
                     with open(Path(__file__).parent / 'modules' / 'help.md', encoding='utf-8') as man:

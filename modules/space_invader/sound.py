@@ -1,24 +1,23 @@
-from ..caixa_som import CaixaSom
+from ..caixa_som import caixa_som
 
 
-SOUNDS_DIR = "modules/space_invader/sounds"
-caixa_som = CaixaSom(musicas=SOUNDS_DIR, efeitos=SOUNDS_DIR)
+SOUNDS_DIR = "vibe_invader/"
 caixa_som.init()
 
 def play_music():
-    caixa_som.tocar_musica('space_battle.wav', volume=0.3)
+    caixa_som.tocar_musica(f'{SOUNDS_DIR}space_battle.wav', 0.3, False)
 
 def stop_music():
     caixa_som.pausar_musica()
 
 def play_shoot():
-    efeito = 'shoot.ogg'
+    efeito = f'{SOUNDS_DIR}shoot.ogg'
     caixa_som.tocar_efeito(efeito, 0.4)
 
 def play_defeat():
-    efeito = 'defeat.ogg'
+    efeito = f'{SOUNDS_DIR}defeat.ogg'
     caixa_som.tocar_efeito(efeito, 0.4)
 
 def play_explosion():
-    caixa_som.tocar_efeito('explosion.ogg')
+    caixa_som.tocar_efeito(f'{SOUNDS_DIR}explosion.ogg')
 

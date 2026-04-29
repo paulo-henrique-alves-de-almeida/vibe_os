@@ -1,6 +1,6 @@
 # importação de modules
 from console import console, limpar_tela, erro, aviso
-from caixa_som import CaixaSom
+from caixa_som import caixa_som
 
 # importação de Rich
 from rich.panel import Panel
@@ -20,7 +20,6 @@ def boot() -> None:
     limpar_tela()
     console.print("\n")
 
-    caixa_som = CaixaSom()
     caixa_som.init()
     caixa_som.tocar_musica('playstation-2-startup-intro-ps2.mp3', loop=0, fadeout=5000)
     
@@ -36,6 +35,10 @@ def boot() -> None:
 
 def boas_vindas() -> None:
     limpar_tela()
+
+    caixa_som.init()
+    caixa_som.tocar_musica('Sanctuary OS.mp3', volume=0.5)
+
     console.print(Panel(Align.center(text2art('Bem vindo ao VibeOS!')), border_style="green", box=box.DOUBLE))
     sleep(1)
 
