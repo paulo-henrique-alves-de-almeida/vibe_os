@@ -1,4 +1,4 @@
-from console import console, limpar_tela, erro
+from console import console, limpar_tela, erro, aviso
 from caixa_som import caixa_som
 from pathlib import Path
 from rich.panel import Panel
@@ -25,7 +25,8 @@ def mostrar_biblioteca():
 
 def biblioteca_musicas():
     caixa_som.init()
-    
+    quantidade_musicas = len(caixa_som.listar_musicas())
+
     while True:
         limpar_tela()
         mostrar_biblioteca()
@@ -36,9 +37,13 @@ def biblioteca_musicas():
 
                 if musica == 0:
                     break
+                    
+                if musica < 0 or musica > quantidade_musicas:
+                    aviso(f'Digite apenas números de 1 a {quantidade_musicas} ou 0 para sair.')
+                    continue
 
             except:
-                erro(f'Digite apenas números de 1 a {len(caixa_som.listar_musicas())} ou 0 para sair.')
+                erro(f'Digite apenas números de 1 a {quantidade_musicas} ou 0 para sair.')
             
             else:
                 caixa_som.tocar_musica(caixa_som.listar_musicas()[musica - 1])
