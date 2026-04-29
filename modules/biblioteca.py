@@ -1,19 +1,27 @@
+# importações internas
 from console import console, limpar_tela, erro, aviso
 from caixa_som import caixa_som
-from pathlib import Path
+
+
+# importação de Rich
 from rich.panel import Panel
 from rich.text import Text
 from rich.console import Group
 
+# outras importações
+from pathlib import Path
+from art import text2art
+
 def mostrar_biblioteca():
-    console.print(Panel(Text('BIBLIOTECA DE MÚSICAS', justify='center', style='bold green')))
+    console.print(Panel(Text(text2art('BIBLIOTECA  DE  MUSICAS'), style='bold green')))
     console.print()
 
     musicas = caixa_som.listar_musicas()
+    musicas.sort()
     lista_musicas = Text()
 
     for index, music in enumerate(musicas):
-        lista_musicas.append(f'{f"[{index + 1:>2}]":<5} {Path(music).stem}\n')
+        lista_musicas.append(f'{f"[{index + 1:>2}]":<5} {Path(music).stem}\n\n')
     
     musica_atual = Text(f'Música Atual: {Path(caixa_som.get_musica_atual()).stem}\n', justify='center', style='bold green')
     
@@ -46,8 +54,11 @@ def biblioteca_musicas():
                 erro(f'Digite apenas números de 1 a {quantidade_musicas} ou 0 para sair.')
             
             else:
-                caixa_som.tocar_musica(caixa_som.listar_musicas()[musica - 1])
+                caixa_som.tocar_musica(caixa_som.listar_musicas()[musica - 1], 0.5)
                 break
+        
+        if musica == 0:
+            break
 
 if __name__ == '__main__':
     biblioteca_musicas()

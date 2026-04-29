@@ -52,6 +52,8 @@ class CaixaSom:
             if m.name not in musicas_sistema
         ]
 
+        musicas.sort()
+
         return musicas
 
 if __name__ == '__main__':

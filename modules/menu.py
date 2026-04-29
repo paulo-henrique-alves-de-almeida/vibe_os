@@ -2,6 +2,7 @@
 from console import console, erro, aviso, limpar_tela
 from modules.gerenciar_pastas import gerenciador_pastas
 from caixa_som import caixa_som
+from biblioteca import biblioteca_musicas
 from video2ascii import VideoAscii
 from space_invader import main_vibe_invader as vibe_invaders
 
@@ -52,7 +53,7 @@ def menu(nome: str, nome_dados: str) -> None:
                 cabecalho(nome_dados)
                 mostrar_aplicativos()
                 console.print()
-            console.print(caixa_som.get_musica_atual())  
+                
             comando = console.input(f'[light_green]{nome}@vibe-os:[/light_green]{gerenciador_pastas.get_caminho_home()} > ').strip()
 
             match comando:
@@ -89,7 +90,7 @@ def menu(nome: str, nome_dados: str) -> None:
                     aplicativo = True
                 
                 case '2' | 'music':
-                    pass
+                    biblioteca_musicas()
                     aplicativo = True
                 
                 case '3' | 'vibegochi':
