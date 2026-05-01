@@ -25,7 +25,7 @@ from google.api_core.exceptions import ResourceExhausted
 def cabecalho(nome: str):
     limpar_tela()
 
-    console.print(Panel(Align.center(f'User: {nome}  |  Date: {date.today()}'), border_style="green", box=box.SIMPLE_HEAD, expand=False), justify="center")
+    console.print(Panel(Align.center(f'User: {nome}  |  Music: {Path(caixa_som.get_musica_atual()).stem}  |  Date: {date.today()}'), border_style="green", box=box.SIMPLE_HEAD, expand=False), justify="center")
     
     console.print(Panel(Align.center(text2art('VibeOS')), border_style="green", box=box.DOUBLE))
     console.print(Panel("[bold green]Lista de Aplicativos[/bold green]", border_style="green", box=box.SIMPLE_HEAD, expand=False), justify="center")
