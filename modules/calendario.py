@@ -2,6 +2,12 @@ import calendar
 import os
 from rich.console import Console
 from rich.table import Table
+from datetime import datetime
+
+MESES = [
+    "janeiro", "fevereiro", "março", "abril", "maio", "junho",
+    "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
+]
 
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
