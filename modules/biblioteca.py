@@ -13,7 +13,7 @@ from pathlib import Path
 from art import text2art
 
 def mostrar_biblioteca():
-    console.print(Panel(Text(text2art('BIBLIOTECA  DE  MUSICAS'), style='bold green')))
+    console.print(Panel(text2art('BIBLIOTECA  DE  MUSICAS'), style='bold green'))
     console.print()
 
     musicas = caixa_som.listar_musicas()
@@ -42,7 +42,7 @@ def biblioteca_musicas():
 
         while True:
             try:
-                musica = int(console.input('>>> '))
+                musica = int(console.input('>>> ').strip())
 
                 if musica == -1:
                     caixa_som.set_musica_atual('mute')

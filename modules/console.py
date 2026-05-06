@@ -1,10 +1,12 @@
 from rich.console import Console
 from caixa_som import CaixaSom
 
+import os
+
 console = Console(style='green')
 
 def limpar_tela() -> None:
-    console.clear()
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def som_erro(func):
     def wrapper(*args, **kwargs):
