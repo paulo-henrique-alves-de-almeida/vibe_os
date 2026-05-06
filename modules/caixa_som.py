@@ -49,6 +49,8 @@ class CaixaSom:
             mixer.music.fadeout(fadeout)
     
     def set_musica_atual(self, nome_musica: str):
+        self.musica_atual.parent.mkdir(parents=True, exist_ok=True)
+
         with open(self.musica_atual, "w+") as arquivo:
             dump({'musica_atual': nome_musica}, arquivo, indent=4, ensure_ascii=False)
 

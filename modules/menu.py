@@ -2,6 +2,7 @@
 from console import console, erro, aviso, limpar_tela
 from modules.gerenciar_pastas import gerenciador_pastas
 from caixa_som import caixa_som
+from calendario import calendario
 from biblioteca import biblioteca_musicas
 from video2ascii import VideoAscii
 from space_invader import main_vibe_invader as vibe_invaders
@@ -88,7 +89,7 @@ def menu(nome: str, nome_dados: str) -> None:
                     aplicativo = False
 
                 case '1' | 'calendar':
-                    pass
+                    calendario()
                     aplicativo = True
                 
                 case '2' | 'music':
@@ -102,11 +103,7 @@ def menu(nome: str, nome_dados: str) -> None:
                 case '4' | 'vibe_invaders':
                     aplicativo = True
                     limpar_tela()
-                    try:
-                        vibe_invaders.main()
-                    except Exception as e:
-                        print(e)
-                        input()
+                    vibe_invaders.main()
                 
                 case '5' | 'help':
                     with open(Path(__file__).parent / 'help.md', encoding='utf-8') as man:
@@ -127,9 +124,14 @@ def menu(nome: str, nome_dados: str) -> None:
                 
                 case 'rick':
                     aplicativo = True
-                    video = VideoAscii('rickroll.mp4')
-                    caixa_som.tocar_musica('Rickroll.mp3', 0.8, False, 0)
-                    video.play()
+                    
+                    try:
+                        video = VideoAscii('rickroll.mp4')
+                        caixa_som.tocar_musica('Rickroll.mp3', 0.8, False, 0)
+                        video.play()
+                    except KeyboardInterrupt:
+                        caixa_som.pausar_musica()
+                        continue
                     
                 # "else"
                 case _:
@@ -275,9 +277,8 @@ def menu(nome: str, nome_dados: str) -> None:
                             except:
                                 erro(f'Comando [italic]{comando}[/italic] desconhecido.')
         # except:
-        except Exception as e:
-            print(e)
-            console.print()
+        except (KeyboardInterrupt, EOFError):
+            continue
 
 if __name__ == '__main__':
     cabecalho('Paulo')

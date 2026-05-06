@@ -5,6 +5,8 @@ from caixa_som import caixa_som
 
 # importação de Rich
 from rich.panel import Panel
+from rich import box
+from rich.align import Align
 from rich.text import Text
 from rich.console import Group
 
@@ -13,7 +15,7 @@ from pathlib import Path
 from art import text2art
 
 def mostrar_biblioteca():
-    console.print(Panel(text2art('BIBLIOTECA  DE  MUSICAS'), style='bold green'))
+    console.print(Panel(Align.center(text2art('BIBLIOTECA DE MUSICAS')), style='bold green', box=box.DOUBLE))
     console.print()
 
     musicas = caixa_som.listar_musicas()
@@ -42,7 +44,12 @@ def biblioteca_musicas():
 
         while True:
             try:
-                musica = int(console.input('>>> ').strip())
+                musica = console.input('>>> ').strip()
+
+                if musica == '':
+                    continue
+                    
+                musica = int(musica)
 
                 if musica == -1:
                     caixa_som.set_musica_atual('mute')
@@ -55,7 +62,7 @@ def biblioteca_musicas():
                     aviso(f'Digite apenas números de 1 a {quantidade_musicas}, -1 para deixar a música muda ou 0 para sair.')
                     continue
 
-            except:
+            except ValueError:
                 erro(f'Digite apenas números de 1 a {quantidade_musicas}, -1 para deixar a música muda ou 0 para sair.')
             
             else:

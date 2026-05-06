@@ -1,6 +1,8 @@
 from console import console, erro, aviso, limpar_tela
 
 from rich.panel import Panel
+from rich import box
+from rich.align import Align
 
 from art import text2art
 import calendar
@@ -10,7 +12,7 @@ from datetime import datetime
 MESES = [
     "janeiro", "fevereiro", "março", "abril", "maio", "junho",
     "julho", "agosto", "setembro", "outubro", "novembro", "dezembro",
-    'jan', 'fev', 'mar', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'
+    'jan', 'fev', 'mar', 'abril', 'maio' 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'
 ]
 
 def obter_ano_valido():
@@ -19,46 +21,50 @@ def obter_ano_valido():
             ano = int(console.input("Digite um ano: "))
 
             if ano > 0:
-                break
+                return ano
+
             else:
-                aviso('Digite um ano não negativo.')
+                aviso('Digite um ano positivo.')
 
         except ValueError:
             erro('Digite um ano válido.')
+    
 
 def obter_mes_valido():
-    console.print()
-
     while True:
         try:
-            mes_input = console.input("Digite um mês (nome ou número): ").lower()
+            mes_input = console.input("Digite um mês (nome ou número): ").lower().strip()
 
             if mes_input.isdigit():
                 mes = int(mes_input)
+                
+                if not 1 <= mes <= 12:
+                    erro('Digite um mês válido.')
+                    continue
 
             elif mes_input in MESES:
                 mes = MESES.index(mes_input) + 1
 
+                if mes > 12:
+                    mes -= 12
+
             else:
-                erro('Digite um mês válido.')
+                erro('Digite um mês válido else.')
                 continue
 
-            if (1 <= mes <= 12) or (mes in MESES):
-                break
+            return mes
 
         except:
-            erro('Digite um mês válido.')
+            erro(f'Digite um mês válido.')
 
-def obter_dia_valido():
-    console.print()
-
+def obter_dia_valido(ano, mes):
     _, ultimo_dia = calendar.monthrange(ano, mes)
     while True:
         try:
-            dia = int(console.input(f"Dia (1-{ultimo_dia}): "))
+            dia = int(console.input(f"Digite o dia (1-{ultimo_dia}): "))
 
             if 1 <= dia <= ultimo_dia:
-                return ano, mes, dia
+                return dia
             else:
                 aviso('Digite um dia válido.')
 
@@ -67,7 +73,7 @@ def obter_dia_valido():
 
 def exibir_calendario(ano, mes, dia_escolhido):
     cal = calendar.monthcalendar(ano, mes)
-    titulo = f"\n[bold green3]{MESES[mes-1].upper()} {ano}[/bold green3]"
+    titulo = f"\n[bold green3]{MESES[mes-1].upper()} / {ano}[/bold green3]"
     tabela = Table(title=titulo, show_lines=True, header_style="bold green3")
 
     for d in ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"]:
@@ -75,7 +81,7 @@ def exibir_calendario(ano, mes, dia_escolhido):
 
     for semana in cal:
         linha = [
-            f"[bold green1][{dia}][/]" if dia == dia_escolhido else (str(dia) if dia != 0 else "")
+            f"[bold green1][{dia}][/bold green1]" if dia == dia_escolhido else (str(dia) if dia != 0 else "")
             for dia in semana
         ]
 
@@ -83,57 +89,12 @@ def exibir_calendario(ano, mes, dia_escolhido):
 
     limpar_tela()
 
-    console.print(Panel(text2art('CALENDARIO'), style='bold green', expand=False))
+    console.print(Panel(Align.center(text2art('CALENDARIO')), style='bold green', box=box.DOUBLE))
 
     console.print(tabela)
 
-def ir_para_data_especifica():
-    try:
-        console.print()
-        ano = int(console.input("Digite o ano: "))
 
-        if ano < 0:
-            aviso('Digite um ano não negativo.')
-            return None, None, None
-
-        console.print()
-        mes_input = console.input("Digite o mês (Nome ou número): ").lower()
-
-        if mes_input.isdigit():
-            mes = int(mes_input)
-
-        elif mes_input in MESES:
-            mes = MESES.index(mes_input) + 1
-
-        else:
-            erro('Digite um mês válido.')
-            return None, None, None
-
-        if not (1 <= mes <= 12):
-            erro('Digite um mês válido.')
-            return None, None, None
-
-        _, ultimo_dia = calendar.monthrange(ano, mes)
-
-        try:
-            console.print()
-            dia = int(console.input(f"Digite o dia (1-{ultimo_dia}): "))
-
-        except ValueError:
-            erro('Digite um dia válido.')
-            return None, None, None
-
-        if not (1 <= dia <= ultimo_dia):
-            erro('Digite um dia válido.')
-            return None, None, None
-
-        return ano, mes, dia
-
-    except ValueError:
-        erro('Ocorreu um erro.')
-        return None, None, None
-
-def principal():
+def calendario():
     agora = datetime.now()
     ano_exibido, mes_exibido, dia_exibido = agora.year, agora.month, agora.day
 
@@ -162,11 +123,12 @@ def principal():
                     break
 
                 case 'g':
+                    console.print()
+                    
                     while True:
-                        console.print()
                         novo_ano = obter_ano_valido()
                         novo_mes = obter_mes_valido()
-                        novo_dia = obter_dia_valido()
+                        novo_dia = obter_dia_valido(novo_ano, novo_mes)
 
                         if novo_ano:
                             ano_exibido, mes_exibido, dia_exibido = novo_ano, novo_mes, novo_dia
@@ -175,6 +137,9 @@ def principal():
 
                 case 'q':
                     break
+                
+                case '':
+                    continue
 
                 case _:
                     erro('Digite um comando válido.')
@@ -183,4 +148,4 @@ def principal():
             break
 
 if __name__ == "__main__":
-    principal()
+    calendario()
