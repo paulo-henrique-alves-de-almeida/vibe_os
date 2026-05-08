@@ -114,8 +114,8 @@ def menu(nome: str, nome_dados: str) -> None:
                     break
 
                 # segredos
-                case 'shrek':
-                    pass
+                # case 'shrek':
+                #     pass
                 
                 case 'rick':
                     aplicativo = True
@@ -127,7 +127,25 @@ def menu(nome: str, nome_dados: str) -> None:
                     except (KeyboardInterrupt, EOFError):
                         caixa_som.pausar_musica()
                         continue
-                    
+                
+                # case 'soldar':
+                #     try:
+                #         caixa_som.tocar_musica('homens_queimem_a_vila.mp3')
+                #         console.print('Homens, queimem a vila!!!!!')
+                #         sleep(2)
+                #         console.print('E o tempo de Atenas')
+                #         sleep(1)
+                #         console.print('Destruam turo')
+                #         sleep(0.8)
+                #         console.print('e toros!!!')
+                #         sleep(2)
+                #         console.print('Vamos soldar nosso senhor ARESS!!!!!')
+                #         console.print()
+
+                #     except (KeyboardInterrupt, EOFError):
+                #         caixa_som.pausar_musica()
+                #         continue
+
                 # "else"
                 case _:
                     comando_separado = comando.split(' ')
@@ -136,7 +154,9 @@ def menu(nome: str, nome_dados: str) -> None:
                             if len(comando_separado) != 2:
                                 erro('Comando não reconhecido.')
                             else:
-                                comandos = {'clear': [1, 2], 'whoiam': [3, 4], 'pwd': [5, 6], 'hostname': [7, 8], 'uname': [9, 10], 'ls': [11, 14], 'man': [15, 18], 'cd': [19, 21], 'mkdir': [22, 25], 'touch': [26, 28], 'rm': [29, 31], 'rmdir': [32, 35], 'cat': [36, 38], 'echo': [39, 43], 'viber': [44, 46], 'calendar': [55, 56], 'music': [57, 58], 'vibegotchi': [59, 60], 'vibe_invaders': [61, 62], 'help': [47, 48], 'shutdown': [49, 50]}
+                                comandos = {'clear': [1, 2], 'whoiam': [3, 4], 'pwd': [5, 6], 'hostname': [7, 8], 'uname': [9, 10], 'ls': [11, 14], 'man': [15, 18], 'cd': [19, 21],
+                                'mkdir': [22, 25], 'touch': [26, 28], 'rm': [29, 31], 'rmdir': [32, 35], 'cat': [36, 38], 'echo': [39, 43], 'viber': [44, 46], 'calendar': [55, 56],
+                                'music': [57, 58], 'vibegotchi': [59, 60], 'vibe_invaders': [61, 62], 'help': [47, 48], 'shutdown': [49, 50]}
                                 
                                 if comando_separado[1] in comandos:
                                     caminho = Path(__file__).parent / 'help.md'
@@ -231,7 +251,17 @@ def menu(nome: str, nome_dados: str) -> None:
                                 with open(caminho, "r", encoding="utf-8") as arquivo_instrucoes:
                                     instrucoes = arquivo_instrucoes.read()
                                     
-                                instrucoes_ia = '\n\n---\n\n# Instruções de IA\n\n- Você é um assistente de Sistema Operacional VibeOS em terminal, chamado Viber.\n- Responda sempre em português.\n-Se não souber a resposta, diga claramente. Nunca invente informações.\n- Seja profissional, mas amigável.\n- Não use comandos markdown em sua resposta.\n- Não utilize emojis.\n- Você ama tudo relacionado ao VibeOS, melhor sistema operacional que existe. Incluindo Vibe Invaders, Vibegotchi, músicas, segredos etc\n- O sistema foi criado por Paulo Henrique (seu treinador), Matheus Avanzo (criador do Vibe Invaders), Luiz Felipe e Raphael (criador do Vibegotchi).\n- Ctrl + C sai de qualquer programa e reinicia o menu principal.\n- Menores de 18 anos não são permitidos de utilizar o VibeOS por questões legais.'
+                                instrucoes_ia = '''\n\n---\n\n
+                                # Instruções de IA
+                                - Você é um assistente de Sistema Operacional VibeOS em terminal, chamado Viber.
+                                - Responda sempre em português.\n-Se não souber a resposta, diga claramente. Nunca invente informações.
+                                - Seja profissional, mas amigável.\n- Não use comandos markdown em sua resposta.
+                                - Não utilize emojis.
+                                - Você ama tudo relacionado ao VibeOS, melhor sistema operacional que existe. Incluindo Vibe Invaders, Vibegotchi, músicas, segredos etc
+                                - O sistema foi criado por Paulo Henrique (seu treinador), Matheus Avanzo (criador do Vibe Invaders), Luiz Felipe e Raphael (criador do Vibegotchi).
+                                - Ctrl + C sai de qualquer programa e reinicia o menu principal.
+                                - Menores de 18 anos não são permitidos de utilizar o VibeOS por questões legais.'''
+
                                 instrucoes += instrucoes_ia
                                     
                                 model = genai.GenerativeModel(
