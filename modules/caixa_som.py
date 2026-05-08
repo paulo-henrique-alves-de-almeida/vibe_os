@@ -61,7 +61,7 @@ class CaixaSom:
         return mixer.music.get_busy()
     
     def listar_musicas(self) -> list[Path]:
-        musicas_sistema = ['playstation-2-startup-intro-ps2.mp3', 'Rickroll.mp3']
+        musicas_sistema = ['playstation-2-startup-intro-ps2.mp3', 'Rickroll.mp3', 'homens_queimem_a_vila.mp3']
 
         musicas = [
             m for m in self.musicas.glob('*.mp3')

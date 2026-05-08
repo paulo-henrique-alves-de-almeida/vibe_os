@@ -36,7 +36,9 @@ if __name__ == '__main__':
             boas_vindas()
 
             # cria o diretório home e user
-            nome = dados['nome'].lower().replace(' ', '-').replace('/', '-').replace('\\', '-').replace(':', '-').replace('*', '-').replace('?', '-').replace('"', '-').replace('<', '-').replace('>', '-').replace('|', '-')
+            nome = dados['nome'].lower().replace(' ', '-').replace('/', '-').replace('\\', '-').replace(':', '-')
+            nome = nome.replace('*', '-').replace('?', '-').replace('"', '-').replace('<', '-').replace('>', '-').replace('|', '-')
+            
             if not Path(gerenciador_pastas.caminho_atual / nome).exists():
                 gerenciador_pastas.criar_pasta(nome)
             gerenciador_pastas.trocar_pasta(nome)

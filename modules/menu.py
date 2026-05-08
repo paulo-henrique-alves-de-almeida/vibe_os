@@ -128,23 +128,25 @@ def menu(nome: str, nome_dados: str) -> None:
                         caixa_som.pausar_musica()
                         continue
                 
-                # case 'soldar':
-                #     try:
-                #         caixa_som.tocar_musica('homens_queimem_a_vila.mp3')
-                #         console.print('Homens, queimem a vila!!!!!')
-                #         sleep(2)
-                #         console.print('E o tempo de Atenas')
-                #         sleep(1)
-                #         console.print('Destruam turo')
-                #         sleep(0.8)
-                #         console.print('e toros!!!')
-                #         sleep(2)
-                #         console.print('Vamos soldar nosso senhor ARESS!!!!!')
-                #         console.print()
+                case 'soldar':
+                    try:
+                        caixa_som.tocar_musica('homens_queimem_a_vila.mp3', 0.8, False, 0)
 
-                #     except (KeyboardInterrupt, EOFError):
-                #         caixa_som.pausar_musica()
-                #         continue
+                        console.print('Homens, queimem a vila!!!!!')
+                        sleep(2)
+                        console.print('E o tempo de Atenas')
+                        sleep(2)
+                        console.print('Destruam turo')
+                        sleep(0.8)
+                        console.print('e toros!!!')
+                        sleep(2)
+                        console.print('Vamos soldar nosso senhor ARESS!!!!!')
+                        sleep(2.5)
+                        console.print('Vamos homens acabem com tudo!!!\n')
+
+                    except (KeyboardInterrupt, EOFError):
+                        caixa_som.pausar_musica()
+                        continue
 
                 # "else"
                 case _:
