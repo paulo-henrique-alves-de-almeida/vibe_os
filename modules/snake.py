@@ -8,14 +8,11 @@ largura, altura = 600, 500
 tela = pygame.display.set_mode((largura, altura))
 relogio = pygame.time.Clock()
 
-preta = (0, 0, 0)
+preto = (0, 0, 0)
 branca = (255, 255, 255)
-verde = (0, 255, 0)
-verde_claro = (144, 238, 144)
 verde_escuro = (34, 139, 34)
 azul_escuro = (0, 0, 139)
 vermelho = (255, 0, 0)
-laranja = (255, 165, 0)
 ovo = (230, 220, 140)
 
 tamanho_quadrado = 10
@@ -66,7 +63,7 @@ def mostrar_menu():
     fonte_instr = pygame.font.SysFont("Helvetica", 24)
 
     while True:
-        tela.fill(verde_escuro)
+        tela.fill(preto)
         titulo = fonte_titulo.render("Snake Eater", True, branca)
         instr1 = fonte_instr.render("Pressione Q para jogar", True, branca)
         instr2 = fonte_instr.render("Pressione ESC para sair", True, branca)
@@ -89,8 +86,6 @@ def mostrar_menu():
                     return True
                 elif evento.key == pygame.K_ESCAPE:
                     return False
-
-        relogio.tick(15)
 
 def rodar_jogo():
     fim_jogo = False
@@ -152,8 +147,8 @@ def mostrar_game_over():
 
     espera_ticks = 0
     while True:
-        tela.fill(verde_escuro)
-        titulo = fonte_titulo.render("Game Over", True, branca)
+        tela.fill(preto)
+        titulo = fonte_titulo.render("Game Over", True, vermelho)
         instr1 = fonte_instr.render("Pressione Q para jogar novamente", True, branca)
         instr2 = fonte_instr.render("Pressione ESC para sair", True, branca)
 
@@ -178,11 +173,6 @@ def mostrar_game_over():
                     pygame.quit()
                     exit()
 
-        relogio.tick(10)
-        espera_ticks += 1
-        if espera_ticks > 30:
-            pass
-
 def main():
     rodando = True
     while rodando:
@@ -195,7 +185,6 @@ def main():
             rodando = False
             break
 
-    pygame.quit()
-
 if __name__ == "__main__":
     main()
+    pygame.quit()
