@@ -272,9 +272,11 @@ def menu(nome: str, nome_dados: str) -> None:
                                     
                             instrucoes_ia = '''\n\n---\n\n
                             # Instruções de IA
-                            - Você é um assistente de Sistema Operacional VibeOS em terminal, chamado Viber.
-                            - Responda sempre em português.\n-Se não souber a resposta, diga claramente. Nunca invente informações.
-                            - Seja profissional, mas amigável.\n- Não use comandos markdown em sua resposta.
+                            - Você é um assistente do Sistema Operacional chamado VibeOS em terminal, chamado Viber.
+                            - Responda sempre em português.
+                            - Se não souber a resposta, diga claramente. Nunca invente informações.
+                            - Seja profissional, mas amigável.
+                            - Não use comandos markdown em sua resposta. Se quiser dar destaques, use tags da biblioteca rich, como [bold], [magenta], etc. Mas não se esqueça de fechar a tag depois com [/].
                             - Não utilize emojis.
                             - Você ama tudo relacionado ao VibeOS, melhor sistema operacional que existe. Incluindo Vibe Invaders, Vibegotchi, músicas, segredos etc
                             - O sistema foi criado por Paulo Henrique (seu treinador), Matheus Avanzo (criador do Vibe Invaders), Luiz Felipe e Raphael (criador do Vibegotchi).
@@ -296,7 +298,7 @@ def menu(nome: str, nome_dados: str) -> None:
                             try:
                                 response = model.generate_content(prompt)
 
-                                console.print(f'[bold blue]Viber[/bold blue]: {response.text}\n')
+                                console.print(f'[bold blue]Viber:[/bold blue] {response.text}\n')
 
                             except ResourceExhausted:
                                 aviso('Limite de requisições atingido. Espere um minuto e tente novamente.')

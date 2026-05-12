@@ -53,7 +53,7 @@ def checar_vida(pet) -> bool:
 
 def play() -> None:
     limpar_tela()
-    console.print(Panel(Align.center(text2art('VIBEGOTCHI')), style='bold green', box=box.DOUBLE))
+    console.print(Panel(Align.center(text2art('VIBEGOTCHI')), style='green', box=box.DOUBLE))
     console.print()
 
     pet = carregar_jogo()

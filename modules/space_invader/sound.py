@@ -5,7 +5,7 @@ SOUNDS_DIR = "vibe_invader/"
 caixa_som.init()
 
 def play_music():
-    caixa_som.tocar_musica(f'{SOUNDS_DIR}space_battle.wav', 0.3, False)
+    caixa_som.tocar_musica(f'{SOUNDS_DIR}vibe_space.mp3', 0.3, False)
 
 def stop_music():
     caixa_som.pausar_musica()

@@ -15,7 +15,7 @@ from pathlib import Path
 from art import text2art
 
 def mostrar_biblioteca():
-    console.print(Panel(Align.center(text2art('BIBLIOTECA DE MUSICAS')), style='bold green', box=box.DOUBLE))
+    console.print(Panel(Align.center(text2art('MUSICAS')), style='green', box=box.DOUBLE))
     console.print()
 
     musicas = caixa_som.listar_musicas()
