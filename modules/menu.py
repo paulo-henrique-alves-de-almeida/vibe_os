@@ -348,7 +348,7 @@ def menu(nome: str, nome_dados: str) -> None:
                                 aviso('A expressão é grande demais.')
 
                             except:
-                                erro(f'Comando [italic]{comando}[/italic] desconhecido.')
+                                erro(f'Comando [italic]{comando_separado[0]}[/italic] desconhecido.')
         # except:
         except (KeyboardInterrupt, EOFError):
             if aplicativo:
