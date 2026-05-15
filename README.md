@@ -1,6 +1,6 @@
 # VibeOS
 
-Sistema operacional inspirado em terminais retrô de tela verde, estética cyber nostálgica e computadores clássicos.
+Pseudo-Sistema operacional inspirado em terminais retrô de tela verde, estética cyber nostálgica e computadores clássicos.
 
 O VibeOS entrega uma experiência imersiva baseada em terminal, misturando minimalismo, atmosfera arcade e interação por comandos.
 
