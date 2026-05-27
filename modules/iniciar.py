@@ -30,16 +30,16 @@ def boot() -> None:
             progress.update(tarefa, description=etapa, advance=1)
             sleep(1)
 
-    console.print(Panel("[bold bright_green]  VibeOS INICIALIZADO COM SUCESSO!  [/bold bright_green]", border_style="bright_green", box=box.DOUBLE), justify="center")
+    console.print(Panel("[bold bright_green]  ViberOS INICIALIZADO COM SUCESSO!  [/bold bright_green]", border_style="bright_green", box=box.DOUBLE), justify="center")
     sleep(1)
 
 def boas_vindas() -> None:
     limpar_tela()
 
     caixa_som.init()
-    caixa_som.tocar_musica('VibeOS.mp3', volume=0.5)
+    caixa_som.tocar_musica('ViberOS.mp3', volume=0.5)
 
-    console.print(Panel(Align.center(text2art('Bem vindo ao VibeOS!')), border_style="green", box=box.DOUBLE))
+    console.print(Panel(Align.center(text2art('Bem vindo ao ViberOS!')), border_style="green", box=box.DOUBLE))
     sleep(1)
 
 def coletar_dados() -> None:
@@ -135,7 +135,7 @@ def desligamento() -> None:
             Beep(900, 300)
             sleep(0.3)
 
-    console.print(Panel("[bold bright_green]  OBRIGADO POR USAR VibeOS! :)  [/bold bright_green]", border_style="bright_green", box=box.DOUBLE), justify="center")
+    console.print(Panel("[bold bright_green]  OBRIGADO POR USAR ViberOS! :)  [/bold bright_green]", border_style="bright_green", box=box.DOUBLE), justify="center")
 
 
 if __name__ == '__main__':

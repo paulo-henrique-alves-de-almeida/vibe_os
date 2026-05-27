@@ -34,9 +34,9 @@ from google.api_core.exceptions import ResourceExhausted
 def cabecalho(nome: str) -> None:
     limpar_tela()
 
-    console.print(Panel(Align.center(f'User: {nome}  |  Music: {Path(caixa_som.get_musica_atual()).stem}  |  Date: {date.today()}'), border_style="green", box=box.SIMPLE_HEAD, expand=False), justify="center")
+    console.print(Panel(Align.center(f'User: {nome}  |  Music: {Path(caixa_som.get_musica_atual()).stem}  |  Date: {date.today()}  |  Version: 1.1.0'), border_style="green", box=box.SIMPLE_HEAD, expand=False), justify="center")
     
-    console.print(Panel(Align.center(text2art('VibeOS')), border_style="green", box=box.DOUBLE))
+    console.print(Panel(Align.center(text2art('ViberOS')), border_style="green", box=box.DOUBLE))
     console.print(Panel("[bold green]Lista de Aplicativos[/bold green]", border_style="green", box=box.SIMPLE_HEAD, expand=False), justify="center")
 
 def mostrar_aplicativos():
@@ -69,7 +69,7 @@ def menu(nome: str, nome_dados: str) -> None:
             
             aplicativo = False
                 
-            comando = console.input(f'[light_green]{nome}@vibe-os:[/light_green]{gerenciador_pastas.get_caminho_home()} > ').strip()
+            comando = console.input(f'[light_green]{nome}@viber-os:[/light_green]{gerenciador_pastas.get_caminho_home()} > ').strip()
 
             match comando:
                 case '' | 'clear':
@@ -92,7 +92,7 @@ def menu(nome: str, nome_dados: str) -> None:
                     console.print('[light_green]vibe-os[/light_green]\n')
                 
                 case 'uname':
-                    console.print('Vibelinux 1.0\n')
+                    console.print('Viberlinux 1.0\n')
 
                 case '1' | 'calendar':
                     aplicativo = True
@@ -299,16 +299,16 @@ def menu(nome: str, nome_dados: str) -> None:
                                     
                         #     instrucoes_ia = '''\n\n---\n\n
                         #     # Instruções de IA
-                        #     - Você é um assistente do Sistema Operacional chamado VibeOS em terminal, chamado Viber.
+                        #     - Você é um assistente do Sistema Operacional chamado ViberOS em terminal, chamado Viber.
                         #     - Responda sempre em português.
                         #     - Se não souber a resposta, diga claramente. Nunca invente informações.
                         #     - Seja profissional, mas amigável.
                         #     - Não use comandos markdown em sua resposta. Se quiser dar destaques, use tags da biblioteca rich, como [bold], [magenta], etc. Mas não se esqueça de fechar a tag depois com [/].
                         #     - Não utilize emojis.
-                        #     - Você ama tudo relacionado ao VibeOS, melhor sistema operacional que existe. Incluindo Vibe Invaders, Vibegotchi, músicas, segredos etc
+                        #     - Você ama tudo relacionado ao ViberOS, melhor sistema operacional que existe. Incluindo Vibe Invaders, Vibegotchi, músicas, segredos etc
                         #     - O sistema foi criado por Paulo Henrique, Matheus Avanzo, Luiz Felipe e Raphael.
                         #     - Ctrl + C sai de qualquer programa e reinicia o menu principal.
-                        #     - Menores de 18 anos não são permitidos de utilizar o VibeOS por questões legais.
+                        #     - Menores de 18 anos não são permitidos de utilizar o ViberOS por questões legais.
                         #     - Caso o usuário tenha alguma dúvida, peça-o para entrar em contato pelo email: vibercodasagent@gmail.com
                             
                         #     ## Comandos secretos
