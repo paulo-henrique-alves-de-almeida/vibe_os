@@ -1,8 +1,8 @@
-# VibeOS
+# ViberOS
 
 Pseudo-sistema operacional inspirado em terminais retrô de tela verde, estética de nostalgia digital e computadores clássicos.
 
-O VibeOS entrega uma experiência imersiva baseada em terminal, combinando minimalismo, atmosfera arcade e interação por comandos.
+O ViberOS entrega uma experiência imersiva baseada em terminal, combinando minimalismo, atmosfera arcade e interação por comandos.
 
 ---
 
@@ -37,7 +37,7 @@ O VibeOS entrega uma experiência imersiva baseada em terminal, combinando minim
 
 Total: 10 conquistas
 
-- 3 desbloqueadas via VibeOS
+- 3 desbloqueadas via ViberOS
 - 3 via gameplay de Vibe Invaders
 - 3 via Vibegotchi
 - 1 via sistema de calendário
@@ -93,7 +93,7 @@ O terminal suporta cálculos simples:
 
 ## 🎨 Estética do Sistema
 
-O VibeOS foi criado para capturar a sensação de antigos terminais monocromáticos e computadores clássicos.
+O ViberOS foi criado para capturar a sensação de antigos terminais monocromáticos e computadores clássicos.
 
 Tela verde. Linha de comando. musica retro. Interface minimalista.
 

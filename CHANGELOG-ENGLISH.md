@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to VibeOS will be documented here.
+All notable changes to ViberOS will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
@@ -10,13 +10,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 > Features in development or planned for future updates.
 - Snake Vibe Game
-- Project name change
 - New music tracks
 - Text-based RPG
 - Vibegotchi update
 - New secret terminal commands 👀
 
 ## [1.1.0] - 27-05-2026
+
+### Rebranding
+New name to project
+- VibeOS -> ViberOS
 
 ### Added
 - Achievement system

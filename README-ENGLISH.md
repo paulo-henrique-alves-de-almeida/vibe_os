@@ -1,8 +1,8 @@
-# VibeOS
+# ViberOS
 
 A pseudo-operating system inspired by retro green-screen terminals, digital nostalgia aesthetics, and classic computers.
 
-VibeOS delivers an immersive terminal-based experience, combining minimalism, arcade atmosphere, and command-driven interaction.
+ViberOS delivers an immersive terminal-based experience, combining minimalism, arcade atmosphere, and command-driven interaction.
 
 ---
 
@@ -37,7 +37,7 @@ VibeOS delivers an immersive terminal-based experience, combining minimalism, ar
 
 Total: 10 achievements
 
-- 3 unlocked via VibeOS
+- 3 unlocked via ViberOS
 - 3 unlocked through Vibe Invaders gameplay
 - 3 unlocked via Vibegotchi
 - 1 unlocked via the calendar system
@@ -93,7 +93,7 @@ The terminal supports simple calculations:
 
 ## 🎨 System Aesthetic
 
-VibeOS was created to capture the feeling of old monochromatic terminals and classic computers.
+ViberOS was created to capture the feeling of old monochromatic terminals and classic computers.
 
 Green screen. Command line. Retro music. Minimal interface.
 
