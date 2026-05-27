@@ -10,8 +10,8 @@ STYLES = {
         "EXPLOSION_CHAR": "*",
     },
     "vibe": {
-        "PLAYER_CHAR":    "▴",
-        "ENEMY_CHAR":     "⮟",
+        "PLAYER_CHAR":    "Λ",
+        "ENEMY_CHAR":     "▼",
         "BULLET_CHAR":    "|",
         "EXPLOSION_CHAR": "✹",
     },

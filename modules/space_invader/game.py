@@ -8,7 +8,7 @@ from modules.space_invader.config import WIDTH, HEIGHT
 from modules.space_invader import sound
 from modules.space_invader.boss import Boss
 
-BOSS_WAVE = 6
+BOSS_WAVE = 10
 
 
 def _formation_linha() -> list:
