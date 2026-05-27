@@ -95,7 +95,7 @@ The terminal supports simple calculations:
 
 VibeOS was created to capture the feeling of old monochromatic terminals and classic computers.
 
-Green screen. Command line. Digital silence. Minimal interface.
+Green screen. Command line. Retro music. Minimal interface.
 
 As if an abandoned computer from another time is still running somewhere.
 
