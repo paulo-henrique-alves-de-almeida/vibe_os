@@ -9,6 +9,7 @@ if str(pasta_modules) not in path:
 from modules.iniciar import boot, boas_vindas, menor_idade, checar_sehha, desligamento, coletar_dados
 from modules.menu import menu
 from modules.gerenciar_pastas import gerenciador_pastas
+from modules.achievements.main_achievements import desbloquear
 
 # outras importações
 from json import load
@@ -32,9 +33,10 @@ if __name__ == '__main__':
         menor_idade()
 
     else:
-        if checar_sehha(primeira_vez):
+        if checar_sehha(primeira_vez):  
+            desbloquear("sys_primeiro_login")
             boas_vindas()
-
+ 
             # cria o diretório home e user
             nome = dados['nome'].lower().replace(' ', '-').replace('/', '-').replace('\\', '-').replace(':', '-')
             nome = nome.replace('*', '-').replace('?', '-').replace('"', '-').replace('<', '-').replace('>', '-').replace('|', '-')

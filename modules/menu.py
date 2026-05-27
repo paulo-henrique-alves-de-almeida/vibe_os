@@ -14,6 +14,7 @@ from space_invader import main_vibe_invader as vibe_invaders
 from modules.vibegotchi import main_vibegotchi as vibegotchi
 from modules.matrix_rain import hacker
 from modules.dvd import dvd
+from modules.achievements.main_achievements import desbloquear
 
 # importação da biblioteca rich
 from rich.align import Align
@@ -134,6 +135,7 @@ def menu(nome: str, nome_dados: str) -> None:
                 
                 case 'rick':
                     aplicativo = True
+                    desbloquear("sys_segredo")
                     
                     try:
                         video = VideoAscii('rickroll.mp4')
@@ -149,6 +151,7 @@ def menu(nome: str, nome_dados: str) -> None:
 
                 case 'dvd' | 'protect':
                     aplicativo = True
+                    desbloquear("sys_segredo")
 
                     try:
                         dvd()
@@ -156,6 +159,7 @@ def menu(nome: str, nome_dados: str) -> None:
                         continue
                 
                 case 'soldar' | 'kratos' | 'ares':
+                    desbloquear("sys_segredo")
                     try:
                         caixa_som.tocar_musica('homens_queimem_a_vila.mp3', 0.8, False, 0)
 

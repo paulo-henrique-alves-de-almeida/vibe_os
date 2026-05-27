@@ -34,6 +34,8 @@ class CaixaSom:
     def tocar_musica(self, nome_musica: str, volume: float = 1, salvar_musica_atual: bool = True, loop: int = -1, fadeout: float = 0) -> None:
         if salvar_musica_atual:
             self.set_musica_atual(str(nome_musica))
+            from modules.achievements.main_achievements import desbloquear
+            desbloquear("sys_musica")
 
         if nome_musica == 'mute':
             if self.get_busy_music():

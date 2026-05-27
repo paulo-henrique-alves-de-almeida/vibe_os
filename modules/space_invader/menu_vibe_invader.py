@@ -4,25 +4,32 @@ from rich.text import Text
 from rich.console import Group
 from art import text2art
 
-def draw_menu(style: str = "retro") -> Align:
+MENU_ITEMS = ["jogar", "estilo", "sair"]
+
+
+def draw_menu(style: str = "retro", selected: int = 0) -> Align:
     titulo = Text(text2art("VIBE  INVADERS"), style="green")
     versao = Text("v1.1\n", style="dim green", justify="center")
 
-    menu = Text(justify='center')
-    menu.append("\n[A] Jogar\n\n", style="bold green")
+    # labels exibidos — estilo mostra o valor atual
+    labels = [
+        "Jogar",
+        f"Estilo:  {'RETRO (Easy)' if style == 'retro' else 'VIBE (Hard)'}",
+        "Sair",
+    ]
 
-    # estilo — ativo em verde, inativo em cinza
-    menu.append("[S] Estilo:  ", style="bold green")
-    menu.append("RETRO (Easy)", style="bold green" if style == "retro" else "dim white")
-    menu.append("  /  ", style="bold green")
-    menu.append("VIBE (Hard)",  style="bold green" if style == "vibe"  else "dim white")
-    menu.append("\n\n", style="bold green")
-    menu.append("[Q] Sair\n\n\n", style="bold green")
+    menu = Text(justify="center")
+    menu.append("\n")
+    for i, label in enumerate(labels):
+        if i == selected:
+            menu.append(f"▶  {label}\n\n", style="bold green")
+        else:
+            menu.append(f"   {label}\n\n", style="dim green")
 
     ctrl_text = Text(justify="center")
-    ctrl_text.append("A: Esquerda (←)  |  D: Direita (→)  |  Space: Atirar\n", style="bold green")
-    ctrl_text.append("← → apenas Windows", style="dim green")
-    controles = Align(ctrl_text, vertical='bottom', align='center')
+    ctrl_text.append("↑ ↓: Navegar  |  Enter: Confirmar\n", style="bold green")
+    ctrl_text.append("A: Esquerda (←)  |  D: Direita (→)  |  Space: Atirar", style="dim green")
+    controles = Align(ctrl_text, vertical="bottom", align="center")
 
     conteudo = Group(titulo, versao, menu, controles)
     panel = Panel(conteudo, border_style="green", height=20)
@@ -31,7 +38,7 @@ def draw_menu(style: str = "retro") -> Align:
 
 def draw_gameover(wave, score, highscore) -> Align:
     titulo = Text(text2art("GAME OVER"), style="bold red")
-    
+
     dados = Text(justify="center")
     dados.append("\n\n")
     dados.append(f"{'WAVE':<12}{wave}\n\n", style="bold green")
@@ -44,7 +51,7 @@ def draw_gameover(wave, score, highscore) -> Align:
         Align.center(conteudo, vertical="middle"),
         border_style="green",
         height=20,
-        expand=False
+        expand=False,
     )
 
     return Align.center(panel, vertical="middle")
@@ -65,19 +72,29 @@ def draw_victory(score, highscore) -> Align:
         Align.center(conteudo, vertical="middle"),
         border_style="yellow",
         height=20,
-        expand=False
+        expand=False,
     )
 
     return Align.center(panel, vertical="middle")
 
 
-def handle_menu_input(key, style: str = "retro"):
-    if key == b'a':
-        return "game", style
-    elif key == b's':
-        new_style = "vibe" if style == "retro" else "retro"
-        return "menu", new_style
-    elif key == b'q':
-        return "exit", style
+def handle_menu_input(key, style: str = "retro", selected: int = 0):
+    # navegação com setas (msvcrt já consumiu o \xe0, chega só b'H' ou b'P')
+    if key == b'H':   # seta cima
+        selected = (selected - 1) % len(MENU_ITEMS)
 
-    return "menu", style
+    elif key == b'P':  # seta baixo
+        selected = (selected + 1) % len(MENU_ITEMS)
+
+    # confirma com Enter
+    elif key in (b'\r', b'\n'):
+        item = MENU_ITEMS[selected]
+        if item == "jogar":
+            return "game", style, selected
+        elif item == "estilo":
+            new_style = "vibe" if style == "retro" else "retro"
+            return "menu", new_style, selected
+        elif item == "sair":
+            return "exit", style, selected
+
+    return "menu", style, selected

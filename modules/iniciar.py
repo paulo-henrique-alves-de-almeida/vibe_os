@@ -101,6 +101,7 @@ def menor_idade() -> None:
     console.input('>>> ')
 
 def checar_sehha(primeira_vez: bool =False) -> bool:
+
     if not primeira_vez:
         caminho = Path(__file__).parent.parent / 'dados' / 'dados_usuario.json'
         with open(caminho, "r", encoding="utf-8") as arquivo:

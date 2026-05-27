@@ -13,6 +13,7 @@ from modules.space_invader import sound
 def main() -> None:
     state = "menu"
     game = None
+    menu_selected = 0          # índice do item selecionado no menu
     highscore = load_highscore()
     style = load_style()
     apply_style(style)
@@ -32,7 +33,7 @@ def main() -> None:
             # menu
             if state == "menu":
                 if key:
-                    result, new_style = handle_menu_input(key, style)
+                    result, new_style, menu_selected = handle_menu_input(key, style, menu_selected)
                     if new_style != style:
                         style = new_style
                         apply_style(style)
@@ -44,7 +45,7 @@ def main() -> None:
                         sound.stop_music()
                         break
 
-                live.update(draw_menu(style))
+                live.update(draw_menu(style, menu_selected))
 
             # game
             elif state == "game":
@@ -92,4 +93,3 @@ def main() -> None:
                     state = "menu"
 
             time.sleep(0.05)
-
