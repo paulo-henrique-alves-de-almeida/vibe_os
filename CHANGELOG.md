@@ -50,6 +50,11 @@ Foram adicionadas 10 conquistas no total!
 - 3 conquistas desbloqueadas jogando Vibegotchi
 - 1 conquista desbloqueada utilizando o Calendário
 
+### Alterado
+- Sistema de navegação dos aplicativos reformulado
+- Aplicativos agora utilizam navegação com setas direcionais e `Enter`
+- O terminal principal do VibeOS continua baseado em comandos tradicionais
+
 ### Remoções
 - API do Viber removida temporariamente devido a vazamentos e problemas de segurança
 - Remoção de 11 músicas (Vibe 01-11) por risco de direitos autorais
