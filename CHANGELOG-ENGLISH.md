@@ -50,6 +50,11 @@ A total of 10 achievements have been added!
 - 3 achievements unlocked by playing Vibegotchi
 - 1 achievement unlocked using the Calendar
 
+### Changed
+- Reworked application navigation system
+- Applications now use arrow key and `Enter` navigation
+- The main VibeOS terminal remains command-based
+
 ### Removals
 - Viber API temporarily removed due to leaks and security issues
 - Removal of 11 tracks (Vibe 01-11) due to copyright risk
