@@ -43,6 +43,16 @@ Total: 10 achievements
 - 1 unlocked via the calendar system
 
 ---
+ 
+ ### Application Navigation
+
+VibeOS integrated applications use a retro game-inspired navigation system.
+
+Navigation is handled using the arrow keys and the `Enter` key, creating a smoother and more immersive experience inside applications.
+
+The main VibeOS terminal remains fully command-based.
+
+---
 
 ## 🎮 Features
 
