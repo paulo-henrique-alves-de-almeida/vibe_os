@@ -54,7 +54,7 @@ The main VibeOS terminal remains fully command-based.
 
 ---
 
-## 🎮 Features
+## Features
 
 - Retro terminal with monochromatic green interface
 - Simulated file system
@@ -66,7 +66,7 @@ The main VibeOS terminal remains fully command-based.
 
 ---
 
-## 📦 Integrated Applications
+## Integrated Applications
 
 | Application | Description |
 |-------------|-------------|
@@ -77,7 +77,7 @@ The main VibeOS terminal remains fully command-based.
 
 ---
 
-## 🧮 Mathematical Expressions
+## Mathematical Expressions
 
 The terminal supports simple calculations:
 
