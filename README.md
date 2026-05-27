@@ -10,7 +10,7 @@ O VibeOS entrega uma experiência imersiva baseada em terminal, combinando minim
 
 ### Novidades da 1.1.0
 
-- Novo sistema de estilos: RETRO / VIBE
+- Novo sistema de estilos no Vibe Invaders: RETRO / VIBE
 - Chefe final adicionado: Vibe Destroyer
 - Sistema de conquistas implementado (10 no total)
 - 5 trilhas sonoras originais adicionadas
@@ -19,7 +19,7 @@ O VibeOS entrega uma experiência imersiva baseada em terminal, combinando minim
 
 ---
 
-## 🎮 Estilos
+## 🎮 Estilos do Vibe Invaders
 
 ### RETRO
 - Visual clássico da versão 1.0
