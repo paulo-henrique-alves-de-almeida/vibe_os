@@ -95,7 +95,7 @@ O terminal suporta cálculos simples:
 
 O VibeOS foi criado para capturar a sensação de antigos terminais monocromáticos e computadores clássicos.
 
-Tela verde. Linha de comando. Silêncio digital. Interface minimalista.
+Tela verde. Linha de comando. musica retro. Interface minimalista.
 
 Como se um computador esquecido no tempo ainda continuasse ligado em algum lugar.
 
