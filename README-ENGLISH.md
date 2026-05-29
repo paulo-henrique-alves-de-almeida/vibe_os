@@ -43,8 +43,18 @@ Total: 10 achievements
 - 1 unlocked via the calendar system
 
 ---
+ 
+ ### Application Navigation
 
-## 🎮 Features
+VibeOS integrated applications use a retro game-inspired navigation system.
+
+Navigation is handled using the arrow keys and the `Enter` key, creating a smoother and more immersive experience inside applications.
+
+The main VibeOS terminal remains fully command-based.
+
+---
+
+## Features
 
 - Retro terminal with monochromatic green interface
 - Simulated file system
@@ -56,7 +66,7 @@ Total: 10 achievements
 
 ---
 
-## 📦 Integrated Applications
+## Integrated Applications
 
 | Application | Description |
 |-------------|-------------|
@@ -67,7 +77,7 @@ Total: 10 achievements
 
 ---
 
-## 🧮 Mathematical Expressions
+## Mathematical Expressions
 
 The terminal supports simple calculations:
 
